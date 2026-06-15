@@ -18,176 +18,392 @@
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(rgba(255,255,255,0.024) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.024) 1px, transparent 1px);
-      background-size: 58px 58px;
-      pointer-events: none;
-      z-index: -2;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 760px;
-      height: 760px;
-      right: -280px;
-      top: 60px;
-      background: radial-gradient(circle, rgba(212,0,0,0.22), transparent 68%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 20;
-      padding: 24px 8%;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 26px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(5,5,5,0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(3, 8, 14, 0.54);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .logo {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-main {
+      font-size: 2.4rem;
+      letter-spacing: 10px;
       font-weight: 800;
-      letter-spacing: 1px;
-      font-size: 1rem;
+      line-height: 1;
     }
 
-    .logo span { color: #d40000; }
+    .brand-main span { color: #ed2b2b; }
+
+    .brand-divider {
+      height: 34px;
+      width: 1px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      line-height: 1.45;
+      opacity: 0.95;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
 
     nav a {
       color: #ffffff;
       text-decoration: none;
-      margin-left: 28px;
-      font-size: 0.9rem;
-      opacity: 0.82;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      opacity: 0.86;
     }
 
-    nav a:hover { color: #d40000; }
+    nav a:hover { color: #ed2b2b; }
+
+    .nav-button {
+      border: 1px solid #ed2b2b;
+      padding: 13px 22px;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 0.82rem;
+      transition: 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav-button:hover {
+      background: #ed2b2b;
+      transform: translateY(-2px);
+    }
 
     .hero {
-      min-height: 88vh;
-      padding: 115px 8% 95px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 70px;
+      min-height: 100vh;
       position: relative;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      align-items: center;
+      padding: 120px 5% 70px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 68% 45%, rgba(120, 165, 210, 0.34), transparent 33%),
+        radial-gradient(circle at 70% 70%, rgba(237, 43, 43, 0.18), transparent 22%),
+        linear-gradient(115deg, #02060a 0%, #07101b 40%, #010307 100%);
     }
 
-    .eyebrow {
-      color: #d40000;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      margin-bottom: 20px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 72%, rgba(255,255,255,0.22), transparent 14%),
+        radial-gradient(ellipse at 70% 77%, rgba(130,170,210,0.32), transparent 28%),
+        radial-gradient(ellipse at 70% 80%, rgba(20,36,56,0.8), transparent 48%);
+      opacity: 0.86;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 70px 70px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.08));
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+      max-width: 720px;
     }
 
     h1 {
-      font-size: clamp(3rem, 6.2vw, 6.15rem);
-      line-height: 0.94;
+      font-size: clamp(3.2rem, 6.2vw, 6.8rem);
+      line-height: 1.05;
       letter-spacing: -4px;
-      margin-bottom: 30px;
+      font-weight: 500;
+      margin-bottom: 28px;
+      text-shadow: 0 12px 38px rgba(0,0,0,0.4);
     }
 
-    h1 span { color: #d40000; }
+    h1 strong {
+      color: #ed2b2b;
+      font-weight: 700;
+    }
 
-    .hero p {
-      max-width: 780px;
-      color: #d0d0d0;
-      font-size: 1.2rem;
+    .hero-rule {
+      width: 120px;
+      height: 2px;
+      background: #ed2b2b;
+      margin: 28px 0 26px;
+    }
+
+    .hero-copy p {
+      max-width: 560px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.12rem;
+      line-height: 1.75;
       margin-bottom: 36px;
     }
 
     .button {
-      display: inline-block;
-      background: #d40000;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      border: 1px solid #ed2b2b;
       color: #ffffff;
-      padding: 15px 28px;
       text-decoration: none;
-      font-weight: 800;
-      border-radius: 2px;
-      margin-right: 14px;
+      padding: 15px 26px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+      font-weight: 700;
       transition: 0.25s ease;
     }
 
-    .button:hover { transform: translateY(-2px); }
-
-    .button.secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.35);
+    .button:hover {
+      background: #ed2b2b;
+      transform: translateY(-2px);
     }
 
-    .positioning-panel {
-      border: 1px solid rgba(255,255,255,0.12);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018)),
-        radial-gradient(circle at 78% 18%, rgba(212,0,0,0.25), transparent 42%);
-      padding: 34px;
+    .hero-visual {
       position: relative;
+      z-index: 2;
+      height: 76vh;
+      min-height: 600px;
+    }
+
+    .ripple-stage {
+      position: absolute;
+      inset: 0;
       overflow: hidden;
     }
 
-    .positioning-panel::before {
+    .water-glow {
+      position: absolute;
+      left: 50%;
+      bottom: 7%;
+      width: 880px;
+      height: 360px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at center, rgba(237,43,43,0.55) 0%, rgba(237,43,43,0.18) 13%, transparent 22%),
+        radial-gradient(ellipse at center, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.06) 16%, transparent 35%),
+        radial-gradient(ellipse at center, rgba(90,125,165,0.38) 20%, rgba(25,48,75,0.32) 42%, transparent 68%);
+      filter: blur(0.2px);
+    }
+
+    .ripple {
+      position: absolute;
+      left: 50%;
+      bottom: 19%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.52);
+      opacity: 0.92;
+    }
+
+    .r1 { width: 170px; height: 54px; border-color: rgba(237,43,43,0.78); box-shadow: 0 0 26px rgba(237,43,43,0.38); }
+    .r2 { width: 260px; height: 82px; bottom: 17.5%; }
+    .r3 { width: 390px; height: 126px; bottom: 15.5%; border-color: rgba(255,255,255,0.42); }
+    .r4 { width: 540px; height: 176px; bottom: 13%; border-color: rgba(255,255,255,0.30); }
+    .r5 { width: 700px; height: 236px; bottom: 9%; border-color: rgba(120,160,205,0.24); }
+    .r6 { width: 900px; height: 315px; bottom: 4%; border-color: rgba(120,160,205,0.20); }
+
+    .target-line-x,
+    .target-line-y {
+      position: absolute;
+      background: rgba(255,255,255,0.38);
+      z-index: 3;
+    }
+
+    .target-line-x {
+      left: 18%;
+      right: 2%;
+      bottom: 23%;
+      height: 1px;
+    }
+
+    .target-line-y {
+      width: 1px;
+      height: 230px;
+      left: 50%;
+      bottom: 6%;
+      transform: translateX(-50%);
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.48), rgba(255,255,255,0));
+    }
+
+    .splash {
+      position: absolute;
+      left: 50%;
+      bottom: 19%;
+      width: 28px;
+      height: 150px;
+      transform: translateX(-50%);
+      background: linear-gradient(to top, rgba(255,255,255,0.03), rgba(180,210,240,0.7), rgba(255,255,255,0.08));
+      border-radius: 50% 50% 45% 45%;
+      filter: drop-shadow(0 0 16px rgba(255,255,255,0.18));
+      z-index: 3;
+    }
+
+    .beacon {
+      position: absolute;
+      left: 50%;
+      bottom: 21%;
+      width: 56px;
+      height: 72px;
+      transform: translateX(-50%);
+      background: #ed2b2b;
+      clip-path: path("M28 0 C43 0 56 13 56 28 C56 50 28 72 28 72 C28 72 0 50 0 28 C0 13 13 0 28 0 Z");
+      z-index: 5;
+      box-shadow: 0 0 34px rgba(237,43,43,0.65);
+    }
+
+    .beacon::after {
       content: "";
       position: absolute;
-      inset: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      pointer-events: none;
+      left: 50%;
+      top: 22px;
+      width: 18px;
+      height: 18px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: #07101b;
+      box-shadow: inset 0 0 8px rgba(255,255,255,0.18);
     }
 
-    .panel-title {
+    .drop {
+      position: absolute;
+      left: 50%;
+      width: 42px;
+      height: 42px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255,255,255,0.95), rgba(255,255,255,0.2) 22%, transparent 38%),
+        radial-gradient(circle at 55% 70%, rgba(110,170,230,0.95), rgba(5,10,16,0.92) 72%);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow:
+        inset 0 -10px 20px rgba(0,0,0,0.58),
+        0 0 20px rgba(180,220,255,0.35);
+      z-index: 4;
+    }
+
+    .d1 { top: 10%; width: 23px; height: 23px; opacity: 0.85; }
+    .d2 { top: 24%; width: 48px; height: 48px; }
+    .d3 { top: 45%; width: 42px; height: 42px; }
+
+    .process {
+      position: absolute;
+      right: 0;
+      top: 26%;
+      z-index: 5;
+      display: grid;
+      gap: 34px;
+      width: 300px;
+    }
+
+    .process::before {
+      content: "";
+      position: absolute;
+      left: 27px;
+      top: 30px;
+      bottom: 30px;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(237,43,43,0.8), rgba(255,255,255,0.2));
+      z-index: 0;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      align-items: center;
       position: relative;
       z-index: 2;
-      color: rgba(255,255,255,0.72);
-      font-size: 0.78rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
     }
 
-    .signal-list {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      gap: 14px;
+    .process-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10,18,28,0.78);
+      color: rgba(255,255,255,0.88);
+      font-size: 1.1rem;
     }
 
-    .signal {
-      display: grid;
-      grid-template-columns: 38px 1fr;
-      gap: 14px;
-      align-items: start;
-      background: rgba(10,10,10,0.68);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 16px;
+    .process-step.active .process-icon {
+      border-color: #ed2b2b;
+      color: #ed2b2b;
+      box-shadow: 0 0 22px rgba(237,43,43,0.22);
     }
 
-    .signal-number {
-      color: #d40000;
-      font-weight: 900;
-      font-size: 0.95rem;
-    }
-
-    .signal strong {
+    .process-title {
       display: block;
-      margin-bottom: 4px;
-      color: #ffffff;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(255,255,255,0.9);
     }
 
-    .signal p {
-      color: #bdbdbd;
-      font-size: 0.88rem;
-      margin: 0;
+    .process-step.active .process-title { color: #ed2b2b; }
+
+    .process-text {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.86rem;
+    }
+
+    .scroll-note {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      text-align: center;
+      color: rgba(255,255,255,0.64);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .scroll-note::before {
+      content: "⌄";
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 6px;
+      color: #fff;
+      opacity: 0.88;
     }
 
     section { padding: 95px 8%; }
@@ -298,9 +514,7 @@
       font-weight: 800;
     }
 
-    .engagements {
-      background: #080808;
-    }
+    .engagements { background: #080808; }
 
     .engagement-grid {
       display: grid;
@@ -384,9 +598,7 @@
       font-size: 0.92rem;
     }
 
-    .industries {
-      background: #050505;
-    }
+    .industries { background: #050505; }
 
     .industry-list {
       display: grid;
@@ -440,8 +652,32 @@
       gap: 20px;
     }
 
-    @media (max-width: 1100px) {
-      .hero { grid-template-columns: 1fr; }
+    @media (max-width: 1200px) {
+      nav { gap: 18px; }
+      nav a { font-size: 0.76rem; }
+      .nav-button { display: none; }
+      .process { right: -20px; transform: scale(0.9); }
+    }
+
+    @media (max-width: 980px) {
+      header { position: absolute; }
+      nav { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+      }
+
+      .hero-visual {
+        height: 430px;
+        min-height: 430px;
+        margin-top: -30px;
+      }
+
+      .process { display: none; }
+
+      .target-line-x { left: 5%; right: 5%; }
+
       .services, .impact-grid, .why-grid, .industry-list { grid-template-columns: 1fr 1fr; }
       .method-grid { grid-template-columns: 1fr 1fr; }
       .engagement-grid { grid-template-columns: 1fr 1fr; }
@@ -449,17 +685,41 @@
 
     @media (max-width: 650px) {
       header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        padding: 20px 7%;
       }
 
-      nav a {
-        margin-left: 0;
-        margin-right: 16px;
+      .brand-main {
+        font-size: 1.7rem;
+        letter-spacing: 6px;
       }
 
-      h1 { letter-spacing: -2px; }
+      .brand-sub {
+        font-size: 0.62rem;
+        letter-spacing: 2px;
+      }
+
+      .hero {
+        padding: 110px 7% 50px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+        letter-spacing: -2px;
+      }
+
+      .hero-copy p { font-size: 1rem; }
+
+      .hero-visual {
+        height: 300px;
+        min-height: 300px;
+      }
+
+      .ripple-stage {
+        transform: scale(0.82);
+        transform-origin: center bottom;
+      }
+
+      .scroll-note { display: none; }
 
       .services,
       .impact-grid,
@@ -470,8 +730,6 @@
         grid-template-columns: 1fr;
       }
 
-      .positioning-panel { padding: 24px; }
-
       footer { flex-direction: column; }
     }
   </style>
@@ -480,305 +738,338 @@
 <body>
 
   <header>
-    <div class="logo">DFE <span>Project Consultants</span></div>
+    <a class="brand" href="#top">
+      <div class="brand-main">D<span>F</span>E</div>
+      <div class="brand-divider"></div>
+      <div class="brand-sub">Project<br>Consultants</div>
+    </a>
+
     <nav>
       <a href="#services">Services</a>
-      <a href="#impact">Impact</a>
-      <a href="#engagements">Engagements</a>
+      <a href="#impact">Experience</a>
+      <a href="#method">Approach</a>
+      <a href="#industries">Industries</a>
+      <a href="#engagements">Insights</a>
       <a href="#contact">Contact</a>
     </nav>
+
+    <a class="nav-button" href="#contact">Start a Conversation →</a>
   </header>
 
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Strategy • Advisory • Transformation • Growth</div>
-      <h1>Building stronger organizations through <span>strategy, advisory, and execution.</span></h1>
-      <p>
-        DFE Project Consultants helps organizations strengthen strategy, improve operations,
-        accelerate growth, and deliver transformational initiatives through practical consulting
-        and measurable execution.
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>
+          The right idea.<br>
+          The right focus.<br>
+          <strong>The right impact.</strong>
+        </h1>
+        <div class="hero-rule"></div>
+        <p>
+          DFE Project Consultants helps organizations turn strategic ideas into measurable results through advisory, execution, and growth.
+        </p>
+        <a class="button" href="#contact">Start a Conversation <span>→</span></a>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ripple-stage">
+          <div class="water-glow"></div>
+
+          <div class="ripple r1"></div>
+          <div class="ripple r2"></div>
+          <div class="ripple r3"></div>
+          <div class="ripple r4"></div>
+          <div class="ripple r5"></div>
+          <div class="ripple r6"></div>
+
+          <div class="target-line-x"></div>
+          <div class="target-line-y"></div>
+
+          <div class="drop d1"></div>
+          <div class="drop d2"></div>
+          <div class="drop d3"></div>
+
+          <div class="splash"></div>
+          <div class="beacon"></div>
+        </div>
+
+        <div class="process">
+          <div class="process-step">
+            <div class="process-icon">◎</div>
+            <div>
+              <span class="process-title">Start</span>
+              <span class="process-text">A single idea.</span>
+            </div>
+          </div>
+
+          <div class="process-step active">
+            <div class="process-icon">⌖</div>
+            <div>
+              <span class="process-title">Focus</span>
+              <span class="process-text">Aligned on what matters.</span>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-icon">⚙</div>
+            <div>
+              <span class="process-title">Execute</span>
+              <span class="process-text">Disciplined delivery.</span>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-icon">▥</div>
+            <div>
+              <span class="process-title">Impact</span>
+              <span class="process-text">Measurable, lasting results.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-note">Scroll to explore</div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Consulting <span>Services</span></h2>
+      <p class="section-intro">
+        DFE supports organizations that need clarity, structure, delivery discipline, and measurable business outcomes.
+        Our services are designed to move clients from assessment and planning to implementation and sustainable results.
       </p>
-      <a class="button" href="#contact">Start a Conversation</a>
-      <a class="button secondary" href="#services">Explore Services</a>
-    </div>
 
-    <div class="positioning-panel">
-      <div class="panel-title">What We Help Clients Do</div>
-
-      <div class="signal-list">
-        <div class="signal">
-          <div class="signal-number">01</div>
-          <div>
-            <strong>Clarify direction</strong>
-            <p>Convert business goals into practical priorities, plans, and decision points.</p>
-          </div>
+      <div class="services">
+        <div class="card">
+          <div class="card-number">01</div>
+          <h3>Advisory Services</h3>
+          <p>
+            PMO development, governance design, operating model advisory, organizational assessments,
+            executive planning support, and transformation roadmaps.
+          </p>
         </div>
 
-        <div class="signal">
-          <div class="signal-number">02</div>
-          <div>
-            <strong>Strengthen operations</strong>
-            <p>Improve workflows, governance, service delivery, and organizational alignment.</p>
-          </div>
+        <div class="card">
+          <div class="card-number">02</div>
+          <h3>Strategy & Growth</h3>
+          <p>
+            Growth strategy, customer acquisition, lead generation, lead management,
+            market expansion planning, and relationship management.
+          </p>
         </div>
 
-        <div class="signal">
-          <div class="signal-number">03</div>
-          <div>
-            <strong>Accelerate growth</strong>
-            <p>Design customer acquisition, lead management, and relationship management approaches.</p>
-          </div>
+        <div class="card">
+          <div class="card-number">03</div>
+          <h3>Business Transformation</h3>
+          <p>
+            Process improvement, workflow documentation, business analysis, operational assessments,
+            change management, and organizational readiness.
+          </p>
         </div>
 
-        <div class="signal">
-          <div class="signal-number">04</div>
-          <div>
-            <strong>Deliver outcomes</strong>
-            <p>Support execution, reporting, stakeholder coordination, and measurable implementation.</p>
-          </div>
+        <div class="card">
+          <div class="card-number">04</div>
+          <h3>Program Delivery</h3>
+          <p>
+            PMO support, project planning, requirements coordination, stakeholder alignment,
+            delivery governance, reporting, and execution management.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <h2 class="section-title">Consulting <span>Services</span></h2>
-    <p class="section-intro">
-      DFE supports organizations that need clarity, structure, delivery discipline, and measurable business outcomes.
-      Our services are designed to move clients from assessment and planning to implementation and sustainable results.
-    </p>
+    <section id="impact" class="impact">
+      <h2 class="section-title">Experience & <span>Impact</span></h2>
+      <p class="section-intro">
+        DFE brings experience across complex public and private sector environments. We describe our experience by
+        sector and capability area rather than naming client organizations without prior approval.
+      </p>
 
-    <div class="services">
-      <div class="card">
-        <div class="card-number">01</div>
-        <h3>Advisory Services</h3>
-        <p>
-          PMO development, governance design, operating model advisory, organizational assessments,
-          executive planning support, and transformation roadmaps.
-        </p>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <strong>Federal Healthcare Programs</strong>
+          <ul>
+            <li>Program governance and planning support</li>
+            <li>Stakeholder coordination across complex initiatives</li>
+            <li>Business transformation and operational improvement</li>
+            <li>Technology-enabled delivery support</li>
+          </ul>
+        </div>
+
+        <div class="impact-card">
+          <strong>Financial Services</strong>
+          <ul>
+            <li>Customer growth strategy</li>
+            <li>Lead generation and lead management frameworks</li>
+            <li>Relationship management and service improvement</li>
+            <li>Performance measurement and implementation planning</li>
+          </ul>
+        </div>
+
+        <div class="impact-card">
+          <strong>Insurance & Customer Growth</strong>
+          <ul>
+            <li>Customer acquisition planning</li>
+            <li>Sales opportunity tracking</li>
+            <li>Outreach and engagement strategy</li>
+            <li>Reporting and lead lifecycle visibility</li>
+          </ul>
+        </div>
+
+        <div class="impact-card">
+          <strong>Organizational Advisory</strong>
+          <ul>
+            <li>PMO development and maturity support</li>
+            <li>Governance and reporting structures</li>
+            <li>Operating model recommendations</li>
+            <li>Executive decision support</li>
+          </ul>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="card-number">02</div>
-        <h3>Strategy & Growth</h3>
-        <p>
-          Growth strategy, customer acquisition, lead generation, lead management,
-          market expansion planning, and relationship management.
-        </p>
+    <section id="engagements" class="engagements">
+      <h2 class="section-title">Selected <span>Engagement Types</span></h2>
+      <p class="section-intro">
+        DFE supports targeted engagements where organizations need a practical partner to assess, structure,
+        plan, and move work forward.
+      </p>
+
+      <div class="engagement-grid">
+        <div class="engagement">
+          <strong>PMO Maturity & Governance</strong>
+          <p>Assess current project delivery practices and design governance, reporting, and operating structures.</p>
+        </div>
+
+        <div class="engagement">
+          <strong>Lead Management Strategy</strong>
+          <p>Design practical approaches for lead capture, qualification, routing, tracking, and performance visibility.</p>
+        </div>
+
+        <div class="engagement">
+          <strong>Customer Experience Improvement</strong>
+          <p>Identify process, service, and relationship management opportunities that improve customer outcomes.</p>
+        </div>
+
+        <div class="engagement">
+          <strong>Business Process Improvement</strong>
+          <p>Document workflows, identify inefficiencies, clarify roles, and recommend practical improvements.</p>
+        </div>
+
+        <div class="engagement">
+          <strong>Strategic Planning Support</strong>
+          <p>Help leadership teams translate goals into priorities, roadmaps, workplans, and measurable actions.</p>
+        </div>
+
+        <div class="engagement">
+          <strong>Program Delivery Support</strong>
+          <p>Support planning, requirements coordination, stakeholder alignment, reporting, and execution management.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="card-number">03</div>
-        <h3>Business Transformation</h3>
-        <p>
-          Process improvement, workflow documentation, business analysis, operational assessments,
-          change management, and organizational readiness.
-        </p>
+    <section class="why">
+      <h2 class="section-title">Why <span>DFE</span></h2>
+      <p class="section-intro">
+        DFE combines strategic thinking with hands-on execution. We help organizations organize the work,
+        align stakeholders, and move from ideas to practical results.
+      </p>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <strong>Strategic Thinking</strong>
+          <p>We connect business goals to practical plans, operating decisions, and measurable outcomes.</p>
+        </div>
+
+        <div class="why-item">
+          <strong>Advisory Perspective</strong>
+          <p>We help leadership teams evaluate options, structure decisions, and build stronger organizational capabilities.</p>
+        </div>
+
+        <div class="why-item">
+          <strong>Delivery Discipline</strong>
+          <p>We bring project management, requirements coordination, governance, and execution support to complex work.</p>
+        </div>
+
+        <div class="why-item">
+          <strong>Outcome Focus</strong>
+          <p>We emphasize growth, performance, operational effectiveness, and practical implementation.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="card-number">04</div>
-        <h3>Program Delivery</h3>
-        <p>
-          PMO support, project planning, requirements coordination, stakeholder alignment,
-          delivery governance, reporting, and execution management.
-        </p>
+    <section id="method" class="method">
+      <h2 class="section-title">Our <span>Approach</span></h2>
+      <p class="section-intro">
+        DFE uses a structured engagement model that supports advisory, transformation, growth, and delivery work.
+      </p>
+
+      <div class="method-grid">
+        <div class="step">
+          <strong>01. Discover</strong>
+          <p>Understand current state, stakeholder needs, business objectives, constraints, and opportunities.</p>
+        </div>
+
+        <div class="step">
+          <strong>02. Design</strong>
+          <p>Develop strategy, operating models, project plans, workflows, governance structures, and roadmaps.</p>
+        </div>
+
+        <div class="step">
+          <strong>03. Execute</strong>
+          <p>Coordinate implementation, manage scope, align stakeholders, track progress, and support delivery.</p>
+        </div>
+
+        <div class="step">
+          <strong>04. Measure</strong>
+          <p>Establish reporting, KPIs, performance insights, accountability structures, and executive visibility.</p>
+        </div>
+
+        <div class="step">
+          <strong>05. Improve</strong>
+          <p>Apply lessons learned, optimize processes, mature capabilities, and support long-term adoption.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="impact" class="impact">
-    <h2 class="section-title">Experience & <span>Impact</span></h2>
-    <p class="section-intro">
-      DFE brings experience across complex public and private sector environments. We describe our experience by
-      sector and capability area rather than naming client organizations without prior approval.
-    </p>
+    <section id="industries" class="industries">
+      <h2 class="section-title">Industry <span>Experience</span></h2>
+      <p class="section-intro">
+        DFE brings experience across public and private sector environments, with a focus on organizations that need
+        stronger operations, improved customer engagement, and disciplined project execution.
+      </p>
 
-    <div class="impact-grid">
-      <div class="impact-card">
-        <strong>Federal Healthcare Programs</strong>
-        <ul>
-          <li>Program governance and planning support</li>
-          <li>Stakeholder coordination across complex initiatives</li>
-          <li>Business transformation and operational improvement</li>
-          <li>Technology-enabled delivery support</li>
-        </ul>
+      <div class="industry-list">
+        <div class="industry">
+          <strong>Financial Services</strong>
+          <p>Banking, insurance, customer growth, service excellence, and lead management strategy.</p>
+        </div>
+
+        <div class="industry">
+          <strong>Healthcare</strong>
+          <p>Federal healthcare programs, policy implementation, business operations, and technology-enabled delivery.</p>
+        </div>
+
+        <div class="industry">
+          <strong>Public Sector</strong>
+          <p>Governance, stakeholder coordination, program execution, process improvement, and modernization support.</p>
+        </div>
+
+        <div class="industry">
+          <strong>Technology & Operations</strong>
+          <p>Business analysis, requirements, automation opportunities, operating models, and project delivery support.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="impact-card">
-        <strong>Financial Services</strong>
-        <ul>
-          <li>Customer growth strategy</li>
-          <li>Lead generation and lead management frameworks</li>
-          <li>Relationship management and service improvement</li>
-          <li>Performance measurement and implementation planning</li>
-        </ul>
-      </div>
-
-      <div class="impact-card">
-        <strong>Insurance & Customer Growth</strong>
-        <ul>
-          <li>Customer acquisition planning</li>
-          <li>Sales opportunity tracking</li>
-          <li>Outreach and engagement strategy</li>
-          <li>Reporting and lead lifecycle visibility</li>
-        </ul>
-      </div>
-
-      <div class="impact-card">
-        <strong>Organizational Advisory</strong>
-        <ul>
-          <li>PMO development and maturity support</li>
-          <li>Governance and reporting structures</li>
-          <li>Operating model recommendations</li>
-          <li>Executive decision support</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="engagements" class="engagements">
-    <h2 class="section-title">Selected <span>Engagement Types</span></h2>
-    <p class="section-intro">
-      DFE supports targeted engagements where organizations need a practical partner to assess, structure,
-      plan, and move work forward.
-    </p>
-
-    <div class="engagement-grid">
-      <div class="engagement">
-        <strong>PMO Maturity & Governance</strong>
-        <p>Assess current project delivery practices and design governance, reporting, and operating structures.</p>
-      </div>
-
-      <div class="engagement">
-        <strong>Lead Management Strategy</strong>
-        <p>Design practical approaches for lead capture, qualification, routing, tracking, and performance visibility.</p>
-      </div>
-
-      <div class="engagement">
-        <strong>Customer Experience Improvement</strong>
-        <p>Identify process, service, and relationship management opportunities that improve customer outcomes.</p>
-      </div>
-
-      <div class="engagement">
-        <strong>Business Process Improvement</strong>
-        <p>Document workflows, identify inefficiencies, clarify roles, and recommend practical improvements.</p>
-      </div>
-
-      <div class="engagement">
-        <strong>Strategic Planning Support</strong>
-        <p>Help leadership teams translate goals into priorities, roadmaps, workplans, and measurable actions.</p>
-      </div>
-
-      <div class="engagement">
-        <strong>Program Delivery Support</strong>
-        <p>Support planning, requirements coordination, stakeholder alignment, reporting, and execution management.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="why">
-    <h2 class="section-title">Why <span>DFE</span></h2>
-    <p class="section-intro">
-      DFE combines strategic thinking with hands-on execution. We help organizations organize the work,
-      align stakeholders, and move from ideas to practical results.
-    </p>
-
-    <div class="why-grid">
-      <div class="why-item">
-        <strong>Strategic Thinking</strong>
-        <p>We connect business goals to practical plans, operating decisions, and measurable outcomes.</p>
-      </div>
-
-      <div class="why-item">
-        <strong>Advisory Perspective</strong>
-        <p>We help leadership teams evaluate options, structure decisions, and build stronger organizational capabilities.</p>
-      </div>
-
-      <div class="why-item">
-        <strong>Delivery Discipline</strong>
-        <p>We bring project management, requirements coordination, governance, and execution support to complex work.</p>
-      </div>
-
-      <div class="why-item">
-        <strong>Outcome Focus</strong>
-        <p>We emphasize growth, performance, operational effectiveness, and practical implementation.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="method" class="method">
-    <h2 class="section-title">Our <span>Approach</span></h2>
-    <p class="section-intro">
-      DFE uses a structured engagement model that supports advisory, transformation, growth, and delivery work.
-    </p>
-
-    <div class="method-grid">
-      <div class="step">
-        <strong>01. Discover</strong>
-        <p>Understand current state, stakeholder needs, business objectives, constraints, and opportunities.</p>
-      </div>
-
-      <div class="step">
-        <strong>02. Design</strong>
-        <p>Develop strategy, operating models, project plans, workflows, governance structures, and roadmaps.</p>
-      </div>
-
-      <div class="step">
-        <strong>03. Execute</strong>
-        <p>Coordinate implementation, manage scope, align stakeholders, track progress, and support delivery.</p>
-      </div>
-
-      <div class="step">
-        <strong>04. Measure</strong>
-        <p>Establish reporting, KPIs, performance insights, accountability structures, and executive visibility.</p>
-      </div>
-
-      <div class="step">
-        <strong>05. Improve</strong>
-        <p>Apply lessons learned, optimize processes, mature capabilities, and support long-term adoption.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="industries">
-    <h2 class="section-title">Industry <span>Experience</span></h2>
-    <p class="section-intro">
-      DFE brings experience across public and private sector environments, with a focus on organizations that need
-      stronger operations, improved customer engagement, and disciplined project execution.
-    </p>
-
-    <div class="industry-list">
-      <div class="industry">
-        <strong>Financial Services</strong>
-        <p>Banking, insurance, customer growth, service excellence, and lead management strategy.</p>
-      </div>
-
-      <div class="industry">
-        <strong>Healthcare</strong>
-        <p>Federal healthcare programs, policy implementation, business operations, and technology-enabled delivery.</p>
-      </div>
-
-      <div class="industry">
-        <strong>Public Sector</strong>
-        <p>Governance, stakeholder coordination, program execution, process improvement, and modernization support.</p>
-      </div>
-
-      <div class="industry">
-        <strong>Technology & Operations</strong>
-        <p>Business analysis, requirements, automation opportunities, operating models, and project delivery support.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="cta">
-    <h2 class="section-title">Let’s build what comes next.</h2>
-    <p>
-      Whether your organization needs advisory support, PMO development, growth strategy, process improvement,
-      or project execution leadership, DFE can help turn ideas into structured action.
-    </p>
-    <a class="button secondary-dark" href="mailto:Info@mydfe.com">Contact DFE</a>
-  </section>
+    <section id="contact" class="cta">
+      <h2 class="section-title">Let’s build what comes next.</h2>
+      <p>
+        Whether your organization needs advisory support, PMO development, growth strategy, process improvement,
+        or project execution leadership, DFE can help turn ideas into structured action.
+      </p>
+      <a class="button secondary-dark" href="mailto:Info@mydfe.com">Contact DFE</a>
+    </section>
+  </main>
 
   <footer>
     <div>© 2026 DFE Project Consultants. All rights reserved.</div>
