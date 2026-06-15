@@ -6,15 +6,9 @@
   <title>DFE Project Consultants</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -29,9 +23,9 @@
       position: fixed;
       inset: 0;
       background:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 60px 60px;
+        linear-gradient(rgba(255,255,255,0.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.024) 1px, transparent 1px);
+      background-size: 58px 58px;
       pointer-events: none;
       z-index: -2;
     }
@@ -39,11 +33,11 @@
     body::after {
       content: "";
       position: fixed;
-      width: 700px;
-      height: 700px;
-      right: -250px;
-      top: 80px;
-      background: radial-gradient(circle, rgba(196,0,0,0.28), transparent 65%);
+      width: 760px;
+      height: 760px;
+      right: -280px;
+      top: 60px;
+      background: radial-gradient(circle, rgba(212,0,0,0.22), transparent 68%);
       z-index: -1;
       pointer-events: none;
     }
@@ -64,11 +58,10 @@
     .logo {
       font-weight: 800;
       letter-spacing: 1px;
+      font-size: 1rem;
     }
 
-    .logo span {
-      color: #d40000;
-    }
+    .logo span { color: #d40000; }
 
     nav a {
       color: #ffffff;
@@ -78,17 +71,15 @@
       opacity: 0.82;
     }
 
-    nav a:hover {
-      color: #d40000;
-    }
+    nav a:hover { color: #d40000; }
 
     .hero {
-      min-height: 92vh;
-      padding: 110px 8%;
+      min-height: 88vh;
+      padding: 115px 8% 95px;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      gap: 60px;
+      gap: 70px;
       position: relative;
     }
 
@@ -102,20 +93,18 @@
     }
 
     h1 {
-      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      font-size: clamp(3rem, 6.2vw, 6.15rem);
       line-height: 0.94;
       letter-spacing: -4px;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
-    h1 span {
-      color: #d40000;
-    }
+    h1 span { color: #d40000; }
 
     .hero p {
-      max-width: 720px;
+      max-width: 780px;
       color: #d0d0d0;
-      font-size: 1.22rem;
+      font-size: 1.2rem;
       margin-bottom: 36px;
     }
 
@@ -128,91 +117,93 @@
       font-weight: 800;
       border-radius: 2px;
       margin-right: 14px;
+      transition: 0.25s ease;
     }
+
+    .button:hover { transform: translateY(-2px); }
 
     .button.secondary {
       background: transparent;
       border: 1px solid rgba(255,255,255,0.35);
     }
 
-    .tech-panel {
-      position: relative;
-      min-height: 430px;
+    .positioning-panel {
       border: 1px solid rgba(255,255,255,0.12);
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
-        radial-gradient(circle at top right, rgba(212,0,0,0.32), transparent 48%);
+        linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018)),
+        radial-gradient(circle at 78% 18%, rgba(212,0,0,0.25), transparent 42%);
+      padding: 34px;
+      position: relative;
       overflow: hidden;
     }
 
-    .tech-panel::before {
+    .positioning-panel::before {
       content: "";
       position: absolute;
-      inset: 35px;
-      border: 1px solid rgba(255,255,255,0.14);
+      inset: 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: none;
     }
 
-    .tech-panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, transparent 0%, rgba(212,0,0,0.25) 50%, transparent 100%);
-      transform: rotate(-35deg) translateX(-35%);
-    }
-
-    .node {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      background: #d40000;
-      border-radius: 50%;
-      box-shadow: 0 0 22px rgba(212,0,0,0.9);
-    }
-
-    .n1 { top: 22%; left: 20%; }
-    .n2 { top: 42%; left: 62%; }
-    .n3 { top: 70%; left: 34%; }
-    .n4 { top: 58%; left: 78%; }
-
-    .tech-label {
-      position: absolute;
-      bottom: 36px;
-      left: 36px;
-      right: 36px;
+    .panel-title {
+      position: relative;
       z-index: 2;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
 
-    .tech-label strong {
-      display: block;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
+    .signal-list {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 14px;
     }
 
-    .tech-label p {
-      color: #cfcfcf;
+    .signal {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+      background: rgba(10,10,10,0.68);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 16px;
+    }
+
+    .signal-number {
+      color: #d40000;
+      font-weight: 900;
       font-size: 0.95rem;
+    }
+
+    .signal strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+
+    .signal p {
+      color: #bdbdbd;
+      font-size: 0.88rem;
       margin: 0;
     }
 
-    section {
-      padding: 95px 8%;
-    }
+    section { padding: 95px 8%; }
 
     .section-title {
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-size: clamp(2.1rem, 4vw, 3.6rem);
       line-height: 1;
       letter-spacing: -2px;
       margin-bottom: 20px;
     }
 
-    .section-title span {
-      color: #d40000;
-    }
+    .section-title span { color: #d40000; }
 
     .section-intro {
       color: #bdbdbd;
-      max-width: 860px;
+      max-width: 900px;
       margin-bottom: 50px;
       font-size: 1.08rem;
     }
@@ -267,42 +258,107 @@
       font-size: 0.96rem;
     }
 
-    .about {
+    .impact {
       background: #ffffff;
       color: #050505;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
     }
 
-    .about p {
-      color: #333333;
-      margin-bottom: 18px;
-      font-size: 1.06rem;
-    }
+    .impact .section-intro { color: #333333; }
 
-    .pillars {
+    .impact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
-    .pillar {
-      background: #f3f3f3;
-      padding: 22px;
+    .impact-card {
+      background: #f4f4f4;
       border-left: 5px solid #d40000;
+      padding: 26px;
+      min-height: 260px;
     }
 
-    .pillar strong {
+    .impact-card strong {
       display: block;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-bottom: 14px;
     }
 
-    .method {
+    .impact-card ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: #333333;
+      font-size: 0.95rem;
+    }
+
+    .impact-card li::before {
+      content: "— ";
+      color: #d40000;
+      font-weight: 800;
+    }
+
+    .engagements {
       background: #080808;
     }
+
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .engagement {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.035);
+      padding: 26px;
+      min-height: 150px;
+    }
+
+    .engagement strong {
+      display: block;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .engagement p {
+      color: #bdbdbd;
+      font-size: 0.94rem;
+    }
+
+    .why {
+      background:
+        linear-gradient(rgba(5,5,5,0.94), rgba(5,5,5,0.94)),
+        radial-gradient(circle at center, rgba(212,0,0,0.22), transparent 52%);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .why-item {
+      background: #111111;
+      border-top: 3px solid #d40000;
+      padding: 26px;
+      min-height: 210px;
+    }
+
+    .why-item strong {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
+    .why-item p {
+      color: #bdbdbd;
+      font-size: 0.94rem;
+    }
+
+    .method { background: #ffffff; color: #050505; }
+
+    .method .section-intro { color: #333333; }
 
     .method-grid {
       display: grid;
@@ -312,7 +368,7 @@
 
     .step {
       border-top: 3px solid #d40000;
-      background: #111111;
+      background: #f4f4f4;
       padding: 26px;
       min-height: 190px;
     }
@@ -324,14 +380,12 @@
     }
 
     .step p {
-      color: #bdbdbd;
+      color: #333333;
       font-size: 0.92rem;
     }
 
     .industries {
-      background:
-        linear-gradient(rgba(5,5,5,0.92), rgba(5,5,5,0.92)),
-        radial-gradient(circle at center, rgba(212,0,0,0.24), transparent 50%);
+      background: #050505;
     }
 
     .industry-list {
@@ -366,7 +420,7 @@
 
     .cta p {
       color: #333333;
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto 30px;
       font-size: 1.08rem;
     }
@@ -386,23 +440,11 @@
       gap: 20px;
     }
 
-    @media (max-width: 1000px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .services,
-      .industry-list {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .method-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; }
+      .services, .impact-grid, .why-grid, .industry-list { grid-template-columns: 1fr 1fr; }
+      .method-grid { grid-template-columns: 1fr 1fr; }
+      .engagement-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 650px) {
@@ -417,24 +459,20 @@
         margin-right: 16px;
       }
 
-      h1 {
-        letter-spacing: -2px;
-      }
+      h1 { letter-spacing: -2px; }
 
       .services,
+      .impact-grid,
+      .why-grid,
       .industry-list,
       .method-grid,
-      .pillars {
+      .engagement-grid {
         grid-template-columns: 1fr;
       }
 
-      .tech-panel {
-        min-height: 330px;
-      }
+      .positioning-panel { padding: 24px; }
 
-      footer {
-        flex-direction: column;
-      }
+      footer { flex-direction: column; }
     }
   </style>
 </head>
@@ -445,8 +483,8 @@
     <div class="logo">DFE <span>Project Consultants</span></div>
     <nav>
       <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#method">Method</a>
+      <a href="#impact">Impact</a>
+      <a href="#engagements">Engagements</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -454,27 +492,51 @@
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy • Advisory • Transformation • Growth</div>
-      <h1>Turning vision into <span>measurable results.</span></h1>
+      <h1>Building stronger organizations through <span>strategy, advisory, and execution.</span></h1>
       <p>
         DFE Project Consultants helps organizations strengthen strategy, improve operations,
-        mature project delivery, and build customer-centered growth capabilities through practical advisory,
-        transformation, and execution support.
+        accelerate growth, and deliver transformational initiatives through practical consulting
+        and measurable execution.
       </p>
       <a class="button" href="#contact">Start a Conversation</a>
       <a class="button secondary" href="#services">Explore Services</a>
     </div>
 
-    <div class="tech-panel">
-      <span class="node n1"></span>
-      <span class="node n2"></span>
-      <span class="node n3"></span>
-      <span class="node n4"></span>
+    <div class="positioning-panel">
+      <div class="panel-title">What We Help Clients Do</div>
 
-      <div class="tech-label">
-        <strong>Integrated Consulting Framework</strong>
-        <p>
-          Connecting strategy, governance, data, process, technology, and execution into one practical path forward.
-        </p>
+      <div class="signal-list">
+        <div class="signal">
+          <div class="signal-number">01</div>
+          <div>
+            <strong>Clarify direction</strong>
+            <p>Convert business goals into practical priorities, plans, and decision points.</p>
+          </div>
+        </div>
+
+        <div class="signal">
+          <div class="signal-number">02</div>
+          <div>
+            <strong>Strengthen operations</strong>
+            <p>Improve workflows, governance, service delivery, and organizational alignment.</p>
+          </div>
+        </div>
+
+        <div class="signal">
+          <div class="signal-number">03</div>
+          <div>
+            <strong>Accelerate growth</strong>
+            <p>Design customer acquisition, lead management, and relationship management approaches.</p>
+          </div>
+        </div>
+
+        <div class="signal">
+          <div class="signal-number">04</div>
+          <div>
+            <strong>Deliver outcomes</strong>
+            <p>Support execution, reporting, stakeholder coordination, and measurable implementation.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -483,7 +545,7 @@
     <h2 class="section-title">Consulting <span>Services</span></h2>
     <p class="section-intro">
       DFE supports organizations that need clarity, structure, delivery discipline, and measurable business outcomes.
-      Our services are designed to help clients move from assessment and planning to implementation and sustainable results.
+      Our services are designed to move clients from assessment and planning to implementation and sustainable results.
     </p>
 
     <div class="services">
@@ -501,7 +563,7 @@
         <h3>Strategy & Growth</h3>
         <p>
           Growth strategy, customer acquisition, lead generation, lead management,
-          market expansion planning, and customer relationship management.
+          market expansion planning, and relationship management.
         </p>
       </div>
 
@@ -525,43 +587,122 @@
     </div>
   </section>
 
-  <section id="about" class="about">
-    <div>
-      <h2 class="section-title">Built for practical transformation.</h2>
-      <p>
-        Founded in 2019, DFE Project Consultants is a minority-owned consulting firm created to support the
-        project management, business development, transformation, and advisory needs of organizations across
-        varying industries.
-      </p>
-      <p>
-        Our work brings together strategy, execution, customer growth, business analysis, process improvement,
-        technology enablement, and stakeholder coordination to help organizations achieve measurable progress.
-      </p>
-      <p>
-        We help clients answer the critical questions: what should we do, how should we organize, how do we
-        implement, and how do we measure success?
-      </p>
+  <section id="impact" class="impact">
+    <h2 class="section-title">Experience & <span>Impact</span></h2>
+    <p class="section-intro">
+      DFE brings experience across complex public and private sector environments. We describe our experience by
+      sector and capability area rather than naming client organizations without prior approval.
+    </p>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <strong>Federal Healthcare Programs</strong>
+        <ul>
+          <li>Program governance and planning support</li>
+          <li>Stakeholder coordination across complex initiatives</li>
+          <li>Business transformation and operational improvement</li>
+          <li>Technology-enabled delivery support</li>
+        </ul>
+      </div>
+
+      <div class="impact-card">
+        <strong>Financial Services</strong>
+        <ul>
+          <li>Customer growth strategy</li>
+          <li>Lead generation and lead management frameworks</li>
+          <li>Relationship management and service improvement</li>
+          <li>Performance measurement and implementation planning</li>
+        </ul>
+      </div>
+
+      <div class="impact-card">
+        <strong>Insurance & Customer Growth</strong>
+        <ul>
+          <li>Customer acquisition planning</li>
+          <li>Sales opportunity tracking</li>
+          <li>Outreach and engagement strategy</li>
+          <li>Reporting and lead lifecycle visibility</li>
+        </ul>
+      </div>
+
+      <div class="impact-card">
+        <strong>Organizational Advisory</strong>
+        <ul>
+          <li>PMO development and maturity support</li>
+          <li>Governance and reporting structures</li>
+          <li>Operating model recommendations</li>
+          <li>Executive decision support</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <div class="pillars">
-      <div class="pillar">
-        <strong>Advisory</strong>
-        Governance, PMO maturity, operating models, and executive decision support.
+  <section id="engagements" class="engagements">
+    <h2 class="section-title">Selected <span>Engagement Types</span></h2>
+    <p class="section-intro">
+      DFE supports targeted engagements where organizations need a practical partner to assess, structure,
+      plan, and move work forward.
+    </p>
+
+    <div class="engagement-grid">
+      <div class="engagement">
+        <strong>PMO Maturity & Governance</strong>
+        <p>Assess current project delivery practices and design governance, reporting, and operating structures.</p>
       </div>
 
-      <div class="pillar">
-        <strong>Growth</strong>
-        Customer acquisition, lead management, CRM thinking, and business development.
+      <div class="engagement">
+        <strong>Lead Management Strategy</strong>
+        <p>Design practical approaches for lead capture, qualification, routing, tracking, and performance visibility.</p>
       </div>
 
-      <div class="pillar">
-        <strong>Transformation</strong>
-        Process optimization, change readiness, modernization, and operational improvement.
+      <div class="engagement">
+        <strong>Customer Experience Improvement</strong>
+        <p>Identify process, service, and relationship management opportunities that improve customer outcomes.</p>
       </div>
 
-      <div class="pillar">
-        <strong>Execution</strong>
-        Project delivery, stakeholder alignment, reporting, and measurable implementation.
+      <div class="engagement">
+        <strong>Business Process Improvement</strong>
+        <p>Document workflows, identify inefficiencies, clarify roles, and recommend practical improvements.</p>
+      </div>
+
+      <div class="engagement">
+        <strong>Strategic Planning Support</strong>
+        <p>Help leadership teams translate goals into priorities, roadmaps, workplans, and measurable actions.</p>
+      </div>
+
+      <div class="engagement">
+        <strong>Program Delivery Support</strong>
+        <p>Support planning, requirements coordination, stakeholder alignment, reporting, and execution management.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <h2 class="section-title">Why <span>DFE</span></h2>
+    <p class="section-intro">
+      DFE combines strategic thinking with hands-on execution. We help organizations organize the work,
+      align stakeholders, and move from ideas to practical results.
+    </p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <strong>Strategic Thinking</strong>
+        <p>We connect business goals to practical plans, operating decisions, and measurable outcomes.</p>
+      </div>
+
+      <div class="why-item">
+        <strong>Advisory Perspective</strong>
+        <p>We help leadership teams evaluate options, structure decisions, and build stronger organizational capabilities.</p>
+      </div>
+
+      <div class="why-item">
+        <strong>Delivery Discipline</strong>
+        <p>We bring project management, requirements coordination, governance, and execution support to complex work.</p>
+      </div>
+
+      <div class="why-item">
+        <strong>Outcome Focus</strong>
+        <p>We emphasize growth, performance, operational effectiveness, and practical implementation.</p>
       </div>
     </div>
   </section>
@@ -569,8 +710,7 @@
   <section id="method" class="method">
     <h2 class="section-title">Our <span>Approach</span></h2>
     <p class="section-intro">
-      DFE uses a structured, practical engagement model that supports the full project and transformation lifecycle.
-      We focus on clear planning, disciplined execution, transparent communication, and measurable outcomes.
+      DFE uses a structured engagement model that supports advisory, transformation, growth, and delivery work.
     </p>
 
     <div class="method-grid">
@@ -611,7 +751,7 @@
     <div class="industry-list">
       <div class="industry">
         <strong>Financial Services</strong>
-        <p>Banking, insurance, customer growth, CRM, service excellence, and lead management strategy.</p>
+        <p>Banking, insurance, customer growth, service excellence, and lead management strategy.</p>
       </div>
 
       <div class="industry">
